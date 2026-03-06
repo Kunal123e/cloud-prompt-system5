@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+
 def process_prompt(prompt):
     if not prompt:
         return "Please enter a prompt."

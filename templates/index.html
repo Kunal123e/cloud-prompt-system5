@@ -1,33 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>CloudAI – Cloud-Based Prompt System</title>
+    <title>CloudAI</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
 <div class="container">
-    <h1>☁️ CloudAI – Cloud-Based Prompt System</h1>
 
-    {% if user_prompt %}
-        <div class="chat-box">
-            <div class="question">
-                <strong>Question:</strong>
-                <p>{{ user_prompt }}</p>
-            </div>
+    <div class="card">
 
-            <div class="answer">
-                <strong>Answer:</strong>
-                <p>{{ response }}</p>
-            </div>
+        <h1>☁ CloudAI – Cloud-Based Prompt System</h1>
+
+        {% if user_prompt %}
+        <div class="box question">
+            <h3>Question:</h3>
+            <p>{{ user_prompt }}</p>
         </div>
-    {% endif %}
+        {% endif %}
 
-    <form method="POST" class="prompt-form">
-        <input type="text" name="prompt" placeholder="Type your prompt here..." required>
-        <button type="submit">Send</button>
-    </form>
+        {% if response %}
+        <div class="box answer">
+            <h3>Answer:</h3>
+            <p>{{ response }}</p>
+        </div>
+        {% endif %}
+
+        <form method="POST" class="input-area">
+
+            <input 
+            type="text"
+            name="prompt"
+            placeholder="Type your prompt here..."
+            required>
+
+            <button type="submit">Send</button>
+
+        </form>
+
+    </div>
+
 </div>
 
 </body>
